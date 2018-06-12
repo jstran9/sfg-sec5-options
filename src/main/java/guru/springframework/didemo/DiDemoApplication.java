@@ -19,10 +19,10 @@ public class DiDemoApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(DiDemoApplication.class, args);
         MyController controller = (MyController) ctx.getBean("myController");
-        controller.hello();
 
         // below demonstrates Inversion of Control (The Spring Framework is determining what dependencies to wire at run-time).
         // this is done because of how we used the annotations of @Autowired, @Controller, and @Service!
+        System.out.println(controller.hello());
         System.out.println(((PropertyInjectedController) getController("propertyInjectedController", ctx)).sayHello());
         System.out.println(((ConstructorInjectedController) getController("constructorInjectedController", ctx)).sayHello());
         System.out.println(((SetterInjectedController) getController("setterInjectedController", ctx)).sayHello());
