@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Primary
-@Profile("en")
+@Profile({"en", "default"}) // english is the default bean (if no bean is specified).
 public class PrimaryGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
